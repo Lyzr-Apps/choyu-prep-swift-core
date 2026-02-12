@@ -1,0 +1,42 @@
+{
+  "agent_name": "Expedition Advisor Agent",
+  "agent_id": "698dac7b4b37f0ab5ca235e4",
+  "description": "Provides comprehensive guidance on Cho Oyu preparation including training protocols, gear recommendations, acclimatization schedules, medical considerations, route information, and logistics planning. Adapts advice based on user's climbing experience and timeline.",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "category": "string",
+      "experience_level": "string",
+      "guidance": "string",
+      "key_recommendations": [
+        "string"
+      ],
+      "timeline_considerations": "string",
+      "safety_warnings": [
+        "string"
+      ],
+      "next_steps": [
+        "string"
+      ]
+    }
+  },
+  "example_response": {
+    "result": {
+      "category": "The main category of guidance: training, gear, acclimatization, medical, route, logistics, or general",
+      "experience_level": "Detected or assumed experience level: beginner, intermediate, or advanced",
+      "guidance": "Comprehensive advice with structured sections and detailed information",
+      "key_recommendations": [
+        "sample string"
+      ],
+      "timeline_considerations": "Timeline-specific advice if preparation duration was mentioned",
+      "safety_warnings": [
+        "sample string"
+      ],
+      "next_steps": [
+        "sample string"
+      ]
+    }
+  }
+}

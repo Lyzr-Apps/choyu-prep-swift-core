@@ -1,0 +1,52 @@
+{
+  "workflow": {
+    "name": "Cho Oyu Expedition Preparation Guide",
+    "pattern": "single_agent",
+    "nodes": [
+      {
+        "id": "input_node",
+        "type": "Input",
+        "label": "User Query",
+        "nodeCategory": "input"
+      },
+      {
+        "id": "expedition_advisor_agent",
+        "type": "Agent",
+        "label": "Expedition Advisor Agent",
+        "nodeCategory": "agent",
+        "agent_id": "698dac7b4b37f0ab5ca235e4"
+      },
+      {
+        "id": "output_node",
+        "type": "Output",
+        "label": "Expedition Guidance",
+        "nodeCategory": "end"
+      }
+    ],
+    "edges": [
+      {
+        "source": "input_node",
+        "target": "expedition_advisor_agent"
+      },
+      {
+        "source": "expedition_advisor_agent",
+        "target": "output_node"
+      }
+    ]
+  },
+  "agents": [
+    {
+      "agent_id": "698dac7b4b37f0ab5ca235e4",
+      "name": "Expedition Advisor Agent",
+      "type": "text",
+      "description": "Provides comprehensive guidance on Cho Oyu preparation including training protocols, gear recommendations, acclimatization schedules, medical considerations, route information, and logistics planning. Adapts advice based on user's climbing experience and timeline.",
+      "provider": "OpenAI",
+      "model": "gpt-4.1",
+      "temperature": 0.5,
+      "top_p": 0.95,
+      "response_schema_file": "response_schemas/expedition_advisor_agent_response.json"
+    }
+  ],
+  "knowledge_bases": [],
+  "schedules": []
+}
