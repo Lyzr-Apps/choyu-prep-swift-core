@@ -529,6 +529,10 @@ function SectionCard({ section, isExpanded, onToggle }: { section: Section; isEx
     })
   }
 
+  if (!Icon) {
+    return null
+  }
+
   return (
     <div className="bg-[hsl(35_29%_92%)] border border-[hsl(27_61%_26%)] rounded-lg shadow-md transition-all duration-300">
       <div className="p-6">
