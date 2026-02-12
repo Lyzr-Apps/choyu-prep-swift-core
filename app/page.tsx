@@ -530,18 +530,18 @@ function SectionCard({ section, isExpanded, onToggle }: { section: Section; isEx
   }
 
   return (
-    <div className="bg-card border border-border rounded-lg shadow-md transition-all duration-300">
+    <div className="bg-[hsl(35_29%_92%)] border border-[hsl(27_61%_26%)] rounded-lg shadow-md transition-all duration-300">
       <div className="p-6">
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0">
-            <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-              <Icon className="w-6 h-6 text-accent" />
+            <div className="w-12 h-12 rounded-lg bg-[hsl(43_75%_38%)]/10 flex items-center justify-center">
+              <Icon className="w-6 h-6 text-[hsl(43_75%_38%)]" />
             </div>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-serif text-xl font-semibold text-card-foreground mb-2">{section.title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">{section.description}</p>
-            <button onClick={onToggle} className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+            <h3 className="font-serif text-xl font-semibold text-foreground mb-2">{section.title}</h3>
+            <p className="text-sm text-[hsl(30_20%_45%)] leading-relaxed mb-4">{section.description}</p>
+            <button onClick={onToggle} className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(27_61%_26%)] text-[hsl(35_29%_98%)] rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
               {isExpanded ? (
                 <>
                   <FaChevronUp className="w-3 h-3" />
@@ -558,29 +558,29 @@ function SectionCard({ section, isExpanded, onToggle }: { section: Section; isEx
         </div>
 
         {isExpanded && (
-          <div className="mt-6 pt-6 border-t border-border space-y-6">
-            <div className="bg-secondary/50 rounded-lg p-4">
-              <p className="text-sm text-secondary-foreground leading-relaxed">{section.content.overview}</p>
+          <div className="mt-6 pt-6 border-t border-[hsl(27_61%_26%)] space-y-6">
+            <div className="bg-[hsl(35_20%_88%)]/50 rounded-lg p-4">
+              <p className="text-sm text-[hsl(30_22%_18%)] leading-relaxed">{section.content.overview}</p>
             </div>
 
             <div className="space-y-4">
               {section.content.subsections.map((subsection, index) => (
-                <div key={index} className="border border-border rounded-lg overflow-hidden">
-                  <button onClick={() => toggleSubsection(index)} className="w-full px-4 py-3 bg-muted/30 hover:bg-muted/50 transition-colors flex items-center justify-between">
+                <div key={index} className="border border-[hsl(27_61%_26%)] rounded-lg overflow-hidden">
+                  <button onClick={() => toggleSubsection(index)} className="w-full px-4 py-3 bg-[hsl(35_15%_85%)]/30 hover:bg-[hsl(35_15%_85%)]/50 transition-colors flex items-center justify-between">
                     <h4 className="font-serif font-semibold text-base text-foreground">{subsection.title}</h4>
                     {expandedSubsections.has(index) ? (
-                      <FaChevronUp className="w-4 h-4 text-muted-foreground" />
+                      <FaChevronUp className="w-4 h-4 text-[hsl(30_20%_45%)]" />
                     ) : (
-                      <FaChevronDown className="w-4 h-4 text-muted-foreground" />
+                      <FaChevronDown className="w-4 h-4 text-[hsl(30_20%_45%)]" />
                     )}
                   </button>
                   {expandedSubsections.has(index) && (
-                    <div className="px-4 py-4 bg-card">
+                    <div className="px-4 py-4 bg-[hsl(35_29%_92%)]">
                       <ul className="space-y-2">
                         {subsection.details.map((detail, detailIndex) => (
                           <li key={detailIndex} className="flex items-start gap-3">
-                            <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent mt-2" />
-                            <span className="text-sm text-card-foreground leading-relaxed">{detail}</span>
+                            <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[hsl(43_75%_38%)] mt-2" />
+                            <span className="text-sm text-foreground leading-relaxed">{detail}</span>
                           </li>
                         ))}
                       </ul>
@@ -682,43 +682,43 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
   if (!isOpen) return null
 
   return (
-    <aside className="fixed right-0 top-0 h-full w-full md:w-[400px] bg-card border-l border-border shadow-2xl z-50 flex flex-col">
-      <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-primary/5">
+    <aside className="fixed right-0 top-0 h-full w-full md:w-[400px] bg-[hsl(35_29%_92%)] border-l border-[hsl(27_61%_26%)] shadow-2xl z-50 flex flex-col">
+      <div className="flex items-center justify-between px-6 py-4 border-b border-[hsl(27_61%_26%)] bg-[hsl(27_61%_26%)]/5">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
-            <FaMountain className="w-5 h-5 text-accent" />
+          <div className="w-10 h-10 rounded-full bg-[hsl(43_75%_38%)]/10 flex items-center justify-center">
+            <FaMountain className="w-5 h-5 text-[hsl(43_75%_38%)]" />
           </div>
           <div>
             <h2 className="font-serif text-lg font-semibold text-foreground">Expedition Advisor</h2>
-            <p className="text-xs text-muted-foreground">Expert guidance for Cho Oyu</p>
+            <p className="text-xs text-[hsl(30_20%_45%)]">Expert guidance for Cho Oyu</p>
           </div>
         </div>
-        <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-muted/50 flex items-center justify-center transition-colors">
-          <FaTimes className="w-4 h-4 text-muted-foreground" />
+        <button onClick={onClose} className="w-8 h-8 rounded-full hover:bg-[hsl(35_15%_85%)]/50 flex items-center justify-center transition-colors">
+          <FaTimes className="w-4 h-4 text-[hsl(30_20%_45%)]" />
         </button>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
         {messages.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-              <FaMountain className="w-8 h-8 text-accent" />
+            <div className="w-16 h-16 rounded-full bg-[hsl(43_75%_38%)]/10 flex items-center justify-center mx-auto mb-4">
+              <FaMountain className="w-8 h-8 text-[hsl(43_75%_38%)]" />
             </div>
             <h3 className="font-serif text-lg font-semibold text-foreground mb-2">Welcome to Your Expedition Advisor</h3>
-            <p className="text-sm text-muted-foreground mb-6 max-w-xs mx-auto">Ask me anything about preparing for Cho Oyu - training, gear, acclimatization, and more.</p>
+            <p className="text-sm text-[hsl(30_20%_45%)] mb-6 max-w-xs mx-auto">Ask me anything about preparing for Cho Oyu - training, gear, acclimatization, and more.</p>
           </div>
         )}
 
         {messages.map((message, index) => (
           <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[85%] rounded-lg px-4 py-3 ${message.role === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted text-foreground'}`}>
+            <div className={`max-w-[85%] rounded-lg px-4 py-3 ${message.role === 'user' ? 'bg-[hsl(27_61%_26%)] text-[hsl(35_29%_98%)]' : 'bg-[hsl(35_15%_85%)] text-foreground'}`}>
               {message.role === 'agent' && message.category && (
-                <div className="mb-2 pb-2 border-b border-border/20">
-                  <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-accent/20 text-accent">
+                <div className="mb-2 pb-2 border-b border-[hsl(27_61%_26%)]/20">
+                  <span className="inline-block px-2 py-0.5 rounded text-xs font-medium bg-[hsl(43_75%_38%)]/20 text-[hsl(43_75%_38%)]">
                     {message.category}
                   </span>
                   {message.experience_level && (
-                    <span className="inline-block ml-2 px-2 py-0.5 rounded text-xs font-medium bg-secondary text-secondary-foreground">
+                    <span className="inline-block ml-2 px-2 py-0.5 rounded text-xs font-medium bg-[hsl(35_20%_88%)] text-[hsl(30_22%_18%)]">
                       {message.experience_level}
                     </span>
                   )}
@@ -730,12 +730,12 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
               {message.role === 'agent' && (
                 <>
                   {Array.isArray(message.key_recommendations) && message.key_recommendations.length > 0 && (
-                    <div className="mt-3 pt-3 border-t border-border/20">
+                    <div className="mt-3 pt-3 border-t border-[hsl(27_61%_26%)]/20">
                       <h4 className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-75">Key Recommendations</h4>
                       <ul className="space-y-1">
                         {message.key_recommendations.map((rec, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm">
-                            <span className="flex-shrink-0 w-1 h-1 rounded-full bg-accent mt-2" />
+                            <span className="flex-shrink-0 w-1 h-1 rounded-full bg-[hsl(43_75%_38%)] mt-2" />
                             <span>{rec}</span>
                           </li>
                         ))}
@@ -744,12 +744,12 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                   )}
 
                   {Array.isArray(message.safety_warnings) && message.safety_warnings.length > 0 && (
-                    <div className="mt-3 pt-3 border-t border-border/20">
-                      <h4 className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-75 text-destructive">Safety Warnings</h4>
+                    <div className="mt-3 pt-3 border-t border-[hsl(27_61%_26%)]/20">
+                      <h4 className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-75 text-[hsl(0_84%_60%)]">Safety Warnings</h4>
                       <ul className="space-y-1">
                         {message.safety_warnings.map((warning, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm">
-                            <span className="flex-shrink-0 w-1 h-1 rounded-full bg-destructive mt-2" />
+                            <span className="flex-shrink-0 w-1 h-1 rounded-full bg-[hsl(0_84%_60%)] mt-2" />
                             <span>{warning}</span>
                           </li>
                         ))}
@@ -758,14 +758,14 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
                   )}
 
                   {message.timeline_considerations && (
-                    <div className="mt-3 pt-3 border-t border-border/20">
+                    <div className="mt-3 pt-3 border-t border-[hsl(27_61%_26%)]/20">
                       <h4 className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-75">Timeline Considerations</h4>
                       <p className="text-sm">{message.timeline_considerations}</p>
                     </div>
                   )}
 
                   {Array.isArray(message.next_steps) && message.next_steps.length > 0 && (
-                    <div className="mt-3 pt-3 border-t border-border/20">
+                    <div className="mt-3 pt-3 border-t border-[hsl(27_61%_26%)]/20">
                       <h4 className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-75">Next Steps</h4>
                       <ul className="space-y-1">
                         {message.next_steps.map((step, i) => (
@@ -785,11 +785,11 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
 
         {isLoading && (
           <div className="flex justify-start">
-            <div className="max-w-[85%] rounded-lg px-4 py-3 bg-muted">
+            <div className="max-w-[85%] rounded-lg px-4 py-3 bg-[hsl(35_15%_85%)]">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse animation-delay-200" style={{ animationDelay: '0.2s' }} />
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse animation-delay-400" style={{ animationDelay: '0.4s' }} />
+                <div className="w-2 h-2 rounded-full bg-[hsl(43_75%_38%)] animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[hsl(43_75%_38%)] animate-pulse animation-delay-200" style={{ animationDelay: '0.2s' }} />
+                <div className="w-2 h-2 rounded-full bg-[hsl(43_75%_38%)] animate-pulse animation-delay-400" style={{ animationDelay: '0.4s' }} />
               </div>
             </div>
           </div>
@@ -799,11 +799,11 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
       </div>
 
       {availablePrompts.length > 0 && messages.length === 0 && (
-        <div className="px-6 py-3 border-t border-border bg-muted/30">
-          <p className="text-xs font-medium text-muted-foreground mb-2">Quick questions:</p>
+        <div className="px-6 py-3 border-t border-[hsl(27_61%_26%)] bg-[hsl(35_15%_85%)]/30">
+          <p className="text-xs font-medium text-[hsl(30_20%_45%)] mb-2">Quick questions:</p>
           <div className="flex flex-wrap gap-2">
             {availablePrompts.slice(0, 3).map((prompt, index) => (
-              <button key={index} onClick={() => handleSend(prompt)} className="px-3 py-1.5 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-full text-xs transition-colors">
+              <button key={index} onClick={() => handleSend(prompt)} className="px-3 py-1.5 bg-[hsl(35_20%_88%)] hover:bg-[hsl(35_20%_88%)]/80 text-[hsl(30_22%_18%)] rounded-full text-xs transition-colors">
                 {prompt}
               </button>
             ))}
@@ -811,10 +811,10 @@ function ChatPanel({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }
         </div>
       )}
 
-      <div className="px-6 py-4 border-t border-border bg-background/50">
+      <div className="px-6 py-4 border-t border-[hsl(27_61%_26%)] bg-[hsl(35_29%_95%)]/50">
         <div className="flex gap-2">
-          <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ask about training, gear, route..." disabled={isLoading} className="flex-1 px-4 py-2 bg-input border border-border rounded-lg text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50" />
-          <button onClick={() => handleSend()} disabled={isLoading || !input.trim()} className="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
+          <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ask about training, gear, route..." disabled={isLoading} className="flex-1 px-4 py-2 bg-[hsl(35_15%_75%)] border border-[hsl(27_61%_26%)] rounded-lg text-sm text-foreground placeholder:text-[hsl(30_20%_45%)] focus:outline-none focus:ring-2 focus:ring-[hsl(27_61%_26%)] disabled:opacity-50" />
+          <button onClick={() => handleSend()} disabled={isLoading || !input.trim()} className="px-4 py-2 bg-[hsl(43_75%_38%)] text-[hsl(35_29%_98%)] rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed">
             <FaPaperPlane className="w-4 h-4" />
           </button>
         </div>
@@ -832,16 +832,16 @@ export default function Home() {
   }
 
   return (
-    <div style={THEME_VARS} className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card sticky top-0 z-40 backdrop-blur-sm bg-card/95">
+    <div style={THEME_VARS} className="min-h-screen bg-[hsl(35_29%_95%)]">
+      <header className="border-b border-[hsl(27_61%_26%)] bg-[hsl(35_29%_92%)] sticky top-0 z-40 backdrop-blur-sm bg-[hsl(35_29%_92%)]/95">
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center">
-              <FaMountain className="w-7 h-7 text-accent" />
+            <div className="w-14 h-14 rounded-xl bg-[hsl(43_75%_38%)]/10 flex items-center justify-center">
+              <FaMountain className="w-7 h-7 text-[hsl(43_75%_38%)]" />
             </div>
             <div>
               <h1 className="font-serif text-3xl font-bold text-foreground tracking-tight">Cho Oyu Expedition Guide</h1>
-              <p className="text-sm text-muted-foreground mt-1">Comprehensive preparation for the world's 6th highest peak (8,188m)</p>
+              <p className="text-sm text-[hsl(30_20%_45%)] mt-1">Comprehensive preparation for the world's 6th highest peak (8,188m)</p>
             </div>
           </div>
         </div>
@@ -862,16 +862,16 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="bg-card border border-border rounded-lg p-6 max-w-3xl mx-auto">
+        <div className="bg-[hsl(35_29%_92%)] border border-[hsl(27_61%_26%)] rounded-lg p-6 max-w-3xl mx-auto">
           <h3 className="font-serif text-xl font-semibold text-foreground mb-3">Agent Information</h3>
           <div className="space-y-2">
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center mt-0.5">
-                <FaMountain className="w-4 h-4 text-accent" />
+              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[hsl(43_75%_38%)]/10 flex items-center justify-center mt-0.5">
+                <FaMountain className="w-4 h-4 text-[hsl(43_75%_38%)]" />
               </div>
               <div>
                 <h4 className="font-medium text-sm text-foreground">Expedition Advisor Agent</h4>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <p className="text-xs text-[hsl(30_20%_45%)] mt-0.5">
                   AI-powered advisor providing personalized guidance on Cho Oyu preparation, training protocols, gear selection,
                   acclimatization strategies, route information, and logistics planning. Adapts recommendations based on your
                   experience level and timeline.
@@ -882,7 +882,7 @@ export default function Home() {
         </div>
       </main>
 
-      <button onClick={() => setChatOpen(true)} className="fixed bottom-6 right-6 bg-accent text-accent-foreground px-6 py-4 rounded-full shadow-2xl hover:shadow-accent/25 hover:scale-105 transition-all duration-200 flex items-center gap-3 font-medium z-40">
+      <button onClick={() => setChatOpen(true)} className="fixed bottom-6 right-6 bg-[hsl(43_75%_38%)] text-[hsl(35_29%_98%)] px-6 py-4 rounded-full shadow-2xl hover:shadow-[hsl(43_75%_38%)]/25 hover:scale-105 transition-all duration-200 flex items-center gap-3 font-medium z-40">
         <FaComments className="w-5 h-5" />
         <span className="hidden md:inline">Ask Advisor</span>
       </button>
